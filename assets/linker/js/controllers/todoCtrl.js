@@ -22,7 +22,8 @@ app.controller('TodoCtrl', function TodoCtrl($scope, $modal, sailsSocket, $log, 
   $scope.$on('sailsSocket:connect', function(ev, data) {
     // Get full collection of todos
     sailsSocket.get(
-      '/todo?sort=id%20DESC', {},
+     // '/todo?sort=id%20DESC', {},
+           '/todo?sort=_id%20DESC', {},
       function(response) {
         $scope.todos = response;
         $scope.remainingCount = filterFilter($scope.todos, {isComplete: false}).length;
